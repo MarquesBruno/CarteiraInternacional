@@ -29,19 +29,36 @@ namespace CarteiraInternacional
             }
 
             
-
+            
             Classificacao classificacao = new Classificacao
             {
                 nome = TxtClassif.Text
             };
 
             ClassificRepositorio.Create(classificacao);
-            MessageBox.Show("Cadastrada com Sucesso.");
+
+            if (classificacao.referencia != 1)
+            {
+                //Navigate("Compra.xaml");                
+                MessageBox.Show("Cadastrada com Sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Esta informação já consta no banco de dados");
+            }
+
+            //ClassificRepositorio.Create(classificacao);
+            //MessageBox.Show("Cadastrada com Sucesso.");
 
             
             NavigationService.GoBack();
 
            
+        }
+
+        private void Navigate(string p)
+        {
+            NavigationService.Navigate(new Uri(p, UriKind.Relative));
         }
     }
 }

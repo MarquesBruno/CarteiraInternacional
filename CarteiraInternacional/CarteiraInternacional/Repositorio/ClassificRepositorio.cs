@@ -53,13 +53,16 @@ namespace CarteiraInternacional.Repositorio
             
             foreach (var item in lista)
             {
-                if (item.nome.Equals(pClassific.nome))
+
+               // if (item.nome.Equals(pClassific.nome))
+                if(item.nome.Equals(pClassific.nome, StringComparison.OrdinalIgnoreCase))
                 {
                     ponto = 1;
+                    
                 }
                 
             }
-           
+            
 
             if (ponto == 0)
             {
