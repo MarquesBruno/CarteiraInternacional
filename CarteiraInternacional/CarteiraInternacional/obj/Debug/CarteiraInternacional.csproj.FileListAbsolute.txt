@@ -148,3 +148,5 @@ C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\Ca
 C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\CarteiraInternacional\obj\Debug\CarteiraInternacional.dll
 C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\CarteiraInternacional\obj\Debug\CarteiraInternacional.pdb
 C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\CarteiraInternacional\obj\Debug\XapCacheFile.xml
+C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\CarteiraInternacional\obj\Debug\CadastroEstabelec.g.cs
+C:\Users\Morpheu\Documents\GitHub\CarteiraInternacional\CarteiraInternacional\CarteiraInternacional\obj\Debug\CadastroProd.g.cs

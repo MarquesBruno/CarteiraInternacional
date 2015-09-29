@@ -58,8 +58,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="317"/>
-                <ColumnDefinition Width="Auto" MinWidth="86"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -71,33 +71,55 @@
             </Grid.ColumnDefinitions>
 
 
-            <TextBlock Text="Estabelecimento" />
+            <TextBlock Text="Estabelecimento" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Button Content="?" Name="btninfo" HorizontalAlignment="Left" Width="76" Height="76"
+                     Click="btn_Inf_Click"  BorderBrush="Transparent" Grid.Row="0" Margin="157,-23,0,-25" Grid.ColumnSpan="2"/>
 
-            <!--<toolkit:ListPicker x:Name="lpkEstabelecimento" Grid.Column="0" Grid.Row="1" Width="305" HorizontalAlignment="Left"
+            
+
+            <toolkit:ListPicker x:Name="lpkEstabelecimento" 
+                                Grid.Column="0" Grid.Row="1" Width="315" HorizontalAlignment="Left"
                                 FullModeItemTemplate="{Binding lpkFullItemTemplate}"
-                                ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12"/>-->
+                                ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12" Grid.ColumnSpan="2" />
 
-            <TextBox Name="txtName" InputScope="Text" Grid.Row="1" Grid.ColumnSpan="3" />
+
+            <Button Content="+" Name="btnEstabelec" Grid.Row="1" HorizontalAlignment="Left"
+                     Click="btnAdd_Estabelec_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
+
+            <Button Content="-" Name="btnExcluirEstabelec" Grid.Row="1" Grid.Column="1" Width="76" Height="76"
+                     Click="btnExcluir_Estabelec_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
+
+
+
+            <!--<TextBox Name="txtName" InputScope="Text" Grid.Row="1" Grid.ColumnSpan="3" />-->
 
             <TextBlock Text="Produto" Grid.Row="2"/>
-            <TextBox Name="txtAges" InputScope="Text" Grid.Row="3" Grid.ColumnSpan="3"/>
+            <!--<TextBox Name="txtAges" InputScope="Text" Grid.Row="3" Grid.ColumnSpan="3"/>-->
+
+            <toolkit:ListPicker x:Name="lpkProduto" 
+                                Grid.Column="0" Grid.Row="3" Width="315" HorizontalAlignment="Left"
+                                FullModeItemTemplate="{Binding lpkFullItemTemplate}"
+                                ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12" Grid.ColumnSpan="2" />
+
+
+            <Button Content="+" Name="btnProd" Grid.Row="3" HorizontalAlignment="Left"
+                     Click="btnAdd_Prod_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
+
+            <Button Content="-" Name="btnExcluirProd" Grid.Row="3" Grid.Column="1" Width="76" Height="76"
+                     Click="btnExcluir_Prod_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
+
+
+
 
 
             <TextBlock Text="Classificação" Grid.Row="4"/>
+            
             <toolkit:ListPicker x:Name="lpkCountry" SelectionChanged="lpkCountry_SelectionChanged"
                                 Grid.Row="5" Grid.Column="0" Width="315" HorizontalAlignment="Left"
                                 FullModeItemTemplate="{Binding lpkFullItemTemplate}" 
                                 ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12" Grid.ColumnSpan="2" />
 
 
-           
-            
-            
-            
-            
-            
-            
-            
             
 
             <Button Content="+" Name="btnCadastro" Grid.Row="5" HorizontalAlignment="Left"

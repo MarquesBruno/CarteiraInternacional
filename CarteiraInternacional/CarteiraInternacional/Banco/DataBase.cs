@@ -23,5 +23,15 @@ namespace CarteiraInternacional.Banco
             get { return this.GetTable<Classificacao>(); }
         }
 
+        public Table<Estabelecimento> Estabelecimento
+        {
+            get { return this.GetTable<Estabelecimento>(); }
+        }
+
+        public Table<Produto> Produto
+        {
+            get { return this.GetTable<Produto>(); }
+        }
+
     }
 }
