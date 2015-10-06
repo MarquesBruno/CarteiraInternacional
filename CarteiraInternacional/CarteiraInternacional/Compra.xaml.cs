@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Input;
 using CarteiraInternacional.Entidade;
 using CarteiraInternacional.Repositorio;
+
 namespace CarteiraInternacional
 {
     public partial class Compra : PhoneApplicationPage
@@ -19,15 +20,40 @@ namespace CarteiraInternacional
 
         Classificacao classificacao;
         Classificacao pagina;
+        string listaTest;
         public Compra()
         {
             InitializeComponent();
             List<string> lista = Repositorio.ClassificRepositorio.GetOne();
+
+
             List<string> listaEstabelec = Repositorio.EstabelecRepositorio.GetOne();
+
+            #region teste de busca
+
+            
+            //List<Estabelecimento> listaEstabelec = Repositorio.EstabelecRepositorio.GetOne();
+
+            //foreach (var item in listaEstabelec)
+            //{
+            //    //if (item.id.Equals(pagina.id))
+            //    //    //(item.nome.Equals(pagina.nome)
+            //    //{                   
+            //    listaTest = item.nome;
+            //    //}
+            //}
+            
+            #endregion
+           
+
+
             List<string> listaProduto = Repositorio.ProdutoRepositorio.GetOne();
 
             this.lpkCountry.ItemsSource = lista;
+
             this.lpkEstabelecimento.ItemsSource = listaEstabelec;
+            //this.lpkEstabelecimento.ItemsSource = listaTest;
+
             this.lpkProduto.ItemsSource = listaProduto;
         }
 
@@ -39,7 +65,25 @@ namespace CarteiraInternacional
         private void Refresh()
         {
             List<String> classificacoes = Repositorio.ClassificRepositorio.GetOne();
+
+
             List<string> estabelecimentos = Repositorio.EstabelecRepositorio.GetOne();
+
+            #region teste de busca
+
+            //List<Estabelecimento> estabelecimentos = Repositorio.EstabelecRepositorio.GetOne();
+
+            //foreach (var item in estabelecimentos)
+            //{
+            //    if (item.id.Equals(1))
+            //    //    //(item.nome.Equals(pagina.nome)
+            //    {
+            //        listaTest = item.nome;
+            //    }
+            //}
+            
+            #endregion
+
             List<string> produtos = Repositorio.ProdutoRepositorio.GetOne();
             this.lpkCountry.ItemsSource = classificacoes;
             this.lpkEstabelecimento.ItemsSource = estabelecimentos;
@@ -120,7 +164,7 @@ namespace CarteiraInternacional
                 {
 
                     string nome = lpkCountry.SelectedItem.ToString();
-                    ClassificRepositorio.Delete(nome);
+                    EstabelecRepositorio.Delete(nome);
                     Refresh();
                 }
             }
@@ -166,6 +210,7 @@ namespace CarteiraInternacional
 
         private void btn_Inf_Click(object sender, RoutedEventArgs e)
         {
+          // object extra = EstabelecRepositorio.Get(pagina.id);
             String _Content = String.Format("Estabelecimento: {0}", lpkEstabelecimento.ItemsSource);
             MessageBox.Show(_Content);
         }
