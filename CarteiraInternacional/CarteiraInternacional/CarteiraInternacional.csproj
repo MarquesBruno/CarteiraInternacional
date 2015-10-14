@@ -173,6 +173,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Documentos do Projeto\Artigo DSI.doc" />
     <None Include="Documentos do Projeto\Artigo PDS.doc" />
     <None Include="Documentos do Projeto\Product Backlog.docx" />
     <None Include="packages.config" />
