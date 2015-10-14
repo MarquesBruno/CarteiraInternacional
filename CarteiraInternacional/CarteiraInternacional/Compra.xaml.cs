@@ -96,8 +96,65 @@ namespace CarteiraInternacional
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            String _Content = String.Format("Estabelecimento: {0}\n Produto: {1}\n Tipo: {2}\n Preço: R$ {3}", lpkEstabelecimento.SelectedItem, lpkProduto.SelectedItem, lpkCountry.SelectedItem, txtPreco.Text);
-            MessageBox.Show(_Content);
+            //String _Content = String.Format("Estabelecimento: {0}\n Produto: {1}\n Tipo: {2}\n Preço: R$ {3}", txtName.Text, txtProduto.Text, lpkCountry.SelectedItem, txtPreco.Text);
+            //MessageBox.Show(_Content);
+
+
+            if (lpkEstabelecimento.SelectedItem == string.Empty)
+            {
+                MessageBox.Show(" A Estabelecimento deve ser preenchido");
+                return;
+            }
+
+            if (lpkProduto.SelectedItem == string.Empty)
+            {
+                MessageBox.Show(" A Produto deve ser preenchido");
+                return;
+            }
+
+            if (lpkCountry.SelectedItem == string.Empty)
+            {
+                MessageBox.Show(" A Classificação deve ser preenchida");
+                return;
+            }
+
+            if (txtPreco.Text == string.Empty)
+            {
+                MessageBox.Show("O Preço deve ser preenchido");
+                return;
+            }
+
+            if (txtQtd.Text == string.Empty)
+            {
+                MessageBox.Show("A Quantidade deve ser preenchida");
+                return;
+            }
+
+            Double aux = (Convert.ToDouble(txtPreco.Text));
+            string resultado = string.Format("{0:00.##}", aux);
+
+            CompraEntidade compra = new CompraEntidade
+            {
+                estabelecimento = (Convert.ToString(lpkEstabelecimento.SelectedItem)),
+                produto = (Convert.ToString(lpkProduto.SelectedItem)),
+                classificacao = (Convert.ToString(lpkCountry.SelectedItem)),
+                preco = (Convert.ToDouble(resultado)),
+                Data = DateTime.Now.ToString("dd/MM/yyyy"),
+                qtd = (Convert.ToInt16(txtQtd.Text))
+
+
+            };
+
+            CompraRepositorio.Create(compra);
+
+            MessageBox.Show("Compra Cadastrada com Sucesso.");
+
+            Navigate("/ListaCompras.xaml");
+
+
+
+
+
 
         }
 
@@ -210,9 +267,16 @@ namespace CarteiraInternacional
 
         private void btn_Inf_Click(object sender, RoutedEventArgs e)
         {
-          // object extra = EstabelecRepositorio.Get(pagina.id);
-            String _Content = String.Format("Estabelecimento: {0}", lpkEstabelecimento.ItemsSource);
-            MessageBox.Show(_Content);
+          //object extra = EstabelecRepositorio.Get(pagina.id);
+          //  String _Content = String.Format("Estabelecimento: {0}", lpkEstabelecimento.SelectedItem);
+          //      //lpkEstabelecimento.ItemsSource);
+          //  MessageBox.Show(_Content);
+
+
+
+
+
+
         }
         
 

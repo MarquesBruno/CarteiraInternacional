@@ -29,7 +29,7 @@ namespace CarteiraInternacional
 
         private void Compras_Click(object sender, RoutedEventArgs e)
         {
-            Navigate("/Compra.xaml");
+            Navigate("/ListaCompras.xaml");
         }
 
        

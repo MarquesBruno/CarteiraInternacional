@@ -33,5 +33,10 @@ namespace CarteiraInternacional.Banco
             get { return this.GetTable<Produto>(); }
         }
 
+        public Table<CompraEntidade> Compra
+        {
+            get { return this.GetTable<CompraEntidade>(); }
+        }
+
     }
 }
