@@ -7,41 +7,64 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using CarteiraInternacional.Resources;
 
 namespace CarteiraInternacional
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
         public MainPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            //List<string> lista = Repositorio.ClassificRepositorio.GetOne();
+            List<double> lista = Repositorio.CreditoRepositorio.GetOne();
+            TxtValor.Text = "Saldo disponivel R$ " + (Convert.ToString(lista.First()));
+                 
         }
 
-        private void Euro_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            List<double> lista = Repositorio.CreditoRepositorio.GetOne();
+            TxtValor.Text = "Saldo disponivel R$ " + (Convert.ToString(lista.First()));          
+
+        }
+
+
+
+        private void Calculadora_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Em desenvolvimento");
         }
 
-        private void Dollar_Click(object sender, RoutedEventArgs e)
+        private void Creditar_Click(object sender, RoutedEventArgs e)
         {
-            Navigate("/DollarPage.xaml");
+            Navigate("/ListaCredito.xaml");            
         }
-       
+
+        private void Compras_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate("/ListaCompras.xaml");
+        }
+
+
+        private void Relatorio_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Em desenvolvimento");
+        }
 
         private void Informacoes_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Em desenvolvimento");
         }
-         
+
         private void Navigate(string p)
         {
             NavigationService.Navigate(new Uri(p, UriKind.Relative));
         }
-
-       
-
 
     }
 }

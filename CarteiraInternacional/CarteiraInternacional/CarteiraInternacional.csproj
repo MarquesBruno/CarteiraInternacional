@@ -100,6 +100,9 @@
     <Compile Include="CadastroEstabelec.xaml.cs">
       <DependentUpon>CadastroEstabelec.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CadastroCred.xaml.cs">
+      <DependentUpon>CadastroCred.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CadastroProd.xaml.cs">
       <DependentUpon>CadastroProd.xaml</DependentUpon>
     </Compile>
@@ -112,9 +115,10 @@
     </Compile>
     <Compile Include="Entidade\CompraEntidade.cs" />
     <Compile Include="Entidade\Estabelecimento.cs" />
+    <Compile Include="Entidade\Credito.cs" />
     <Compile Include="Entidade\Produto.cs" />
-    <Compile Include="EuroPage.xaml.cs">
-      <DependentUpon>EuroPage.xaml</DependentUpon>
+    <Compile Include="ListaCredito.xaml.cs">
+      <DependentUpon>ListaCredito.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListaCompras.xaml.cs">
       <DependentUpon>ListaCompras.xaml</DependentUpon>
@@ -125,6 +129,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\ClassificRepositorio.cs" />
+    <Compile Include="Repositorio\CreditoRepositorio.cs" />
     <Compile Include="Repositorio\CompraRepositorio.cs" />
     <Compile Include="Repositorio\EstabelecRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoRepositorio.cs" />
@@ -147,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CadastroCred.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CadastroProd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,9 +168,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EuroPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ListaCredito.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ListaCompras.xaml">
       <SubType>Designer</SubType>

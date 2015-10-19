@@ -17,8 +17,13 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
 
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
@@ -28,17 +33,23 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Euro" HorizontalAlignment="center" Margin="139,150,137,0" VerticalAlignment="Top" Width="180" Click="Euro_Click"/>
-            <Button Content="Dollar" HorizontalAlignment="center" Margin="139,250,137,0" VerticalAlignment="Top" Width="180" Click="Dollar_Click"/>
-            <Button Content="Informações" HorizontalAlignment="center" Margin="139,350,137,0" VerticalAlignment="Top" Width="180" Click="Informacoes_Click"/>
+            <Button Content="Calculadora" HorizontalAlignment="center" Margin="0,78,0,0" VerticalAlignment="Top" Width="180" Click="Calculadora_Click"/>
+            <Button Content="Creditar" HorizontalAlignment="center" Margin="143,156,142,0" VerticalAlignment="Top" Width="180" Click="Creditar_Click"/>
+            <Button Content="Compras" HorizontalAlignment="center" Margin="143,234,142,0" VerticalAlignment="Top" Width="180" Click="Compras_Click"/>
+            <Button Content="Relatório" HorizontalAlignment="center" Margin="143,312,142,0" VerticalAlignment="Top" Width="180" Click="Relatorio_Click"/>
+            <Button Content="Informações" HorizontalAlignment="center" Margin="143,390,142,0" VerticalAlignment="Top" Width="180" Click="Informacoes_Click"/>
 
-            
-            
-                        
-                        
-            
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+
+                <TextBlock x:Name="TxtValor" Grid.Column="0"  FontSize="25"   Style="{StaticResource PhoneTextTitle1Style}" HorizontalAlignment="Center" Margin="0,500,0,0" />
+                
+            </StackPanel>
+
+
+
         </Grid>
-        
+
 
 
     </Grid>
