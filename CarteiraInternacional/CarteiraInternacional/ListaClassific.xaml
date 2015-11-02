@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CarteiraInternacional.ListaClassific"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+
+            <TextBlock Text="Classificações" FontSize="50"  TextWrapping="Wrap" TextAlignment="Center" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,93">
+
+            <StackPanel Margin="0,0,0,-93"  >
+                <ListBox Name="lstClassific" Height="580" SelectionChanged="onSelecionChange">
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <StackPanel>
+
+
+                                <Grid x:Name="ContentPanel" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Tipo: "  FontSize="30"  TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Row="0" Margin="0,0,0,20"  Grid.Column="1" Text="{Binding nome}"  FontSize="30"  TextWrapping="Wrap"/>
+                                    
+
+
+
+
+
+                                </Grid>
+
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Icons/about.png" 
+                                            Text="Sobre"
+                                            Click="appBarSobre_Click"/>
+
+            <shell:ApplicationBarIconButton IconUri="/Icons/delete.png"
+                                            Text="Delete"
+                                            Click="appBarDelete"/>
+
+            <shell:ApplicationBarIconButton IconUri="/Icons/edit.png"
+                                            Text="Add"
+                                            Click="appBarEdit"/>
+
+
+
+
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

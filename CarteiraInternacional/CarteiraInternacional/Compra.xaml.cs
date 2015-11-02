@@ -18,16 +18,19 @@ namespace CarteiraInternacional
     public partial class Compra : PhoneApplicationPage
     {
 
-        Classificacao classificacao;
+       // Classificacao classificacao;
         Classificacao pagina;
-        string listaTest;
+       // Estabelecimento estabelec;
+        
         public Compra()
         {
             InitializeComponent();
-            List<string> lista = Repositorio.ClassificRepositorio.GetOne();
-
 
             List<string> listaEstabelec = Repositorio.EstabelecRepositorio.GetOne();
+            List<string> listaProduto = Repositorio.ProdutoRepositorio.GetOne();
+            List<string> lista = Repositorio.ClassificRepositorio.GetOne();
+            
+           
 
             #region teste de busca
 
@@ -47,9 +50,9 @@ namespace CarteiraInternacional
            
 
 
-            List<string> listaProduto = Repositorio.ProdutoRepositorio.GetOne();
+            
 
-            this.lpkCountry.ItemsSource = lista;
+            this.lpkClassific.ItemsSource = lista;
 
             this.lpkEstabelecimento.ItemsSource = listaEstabelec;
             //this.lpkEstabelecimento.ItemsSource = listaTest;
@@ -69,6 +72,7 @@ namespace CarteiraInternacional
 
             List<string> estabelecimentos = Repositorio.EstabelecRepositorio.GetOne();
 
+
             #region teste de busca
 
             //List<Estabelecimento> estabelecimentos = Repositorio.EstabelecRepositorio.GetOne();
@@ -85,9 +89,10 @@ namespace CarteiraInternacional
             #endregion
 
             List<string> produtos = Repositorio.ProdutoRepositorio.GetOne();
-            this.lpkCountry.ItemsSource = classificacoes;
+            this.lpkClassific.ItemsSource = classificacoes;
             this.lpkEstabelecimento.ItemsSource = estabelecimentos;
             this.lpkProduto.ItemsSource = produtos;
+
 
         }
 
@@ -100,19 +105,19 @@ namespace CarteiraInternacional
             //MessageBox.Show(_Content);
 
 
-            if (lpkEstabelecimento.SelectedItem == string.Empty)
+            if (lpkEstabelecimento.SelectedItem == null)
             {
                 MessageBox.Show(" A Estabelecimento deve ser preenchido");
                 return;
             }
 
-            if (lpkProduto.SelectedItem == string.Empty)
+            if (lpkProduto.SelectedItem == null)
             {
                 MessageBox.Show(" A Produto deve ser preenchido");
                 return;
             }
 
-            if (lpkCountry.SelectedItem == string.Empty)
+            if (lpkClassific.SelectedItem == null)
             {
                 MessageBox.Show(" A Classificação deve ser preenchida");
                 return;
@@ -137,10 +142,10 @@ namespace CarteiraInternacional
             {
                 estabelecimento = (Convert.ToString(lpkEstabelecimento.SelectedItem)),
                 produto = (Convert.ToString(lpkProduto.SelectedItem)),
-                classificacao = (Convert.ToString(lpkCountry.SelectedItem)),
+                classificacao = (Convert.ToString(lpkClassific.SelectedItem)),
                 preco = (Convert.ToDouble(resultado)),
                 Data = DateTime.Now.ToString("dd/MM/yyyy"),
-                qtd = (Convert.ToInt16(txtQtd.Text))
+                qtd = (Convert.ToDouble(txtQtd.Text))
 
 
             };
@@ -169,43 +174,50 @@ namespace CarteiraInternacional
             pagina = (sender as ListBox).SelectedItem as Classificacao;
         }
 
-        private void lpkCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        private void lpkClassific_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           object pagina = (sender as ListPicker).SelectedItem as Classificacao;
+           object classific = (sender as ListPicker).SelectedItem as Classificacao;
         }
 
         private void lpkEstabelec_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            object pagina = (sender as ListPicker).SelectedItem as Estabelecimento;
+            object estabelec = (sender as ListPicker).SelectedItem as Estabelecimento;
         }
 
         private void lpkProd_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            object pagina = (sender as ListPicker).SelectedItem as Produto;
+            object pagiprodut = (sender as ListPicker).SelectedItem as Produto;
         }
 
 
 
 
 
+        //private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (MessageBox.Show("Excluir Classificação " + lpkClassific.SelectedItem + "?") == MessageBoxResult.OK)
+        //        {
+
+        //            string nome = lpkClassific.SelectedItem.ToString();
+        //           ClassificRepositorio.Delete(nome);
+        //            Refresh();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Selecione uma Classificação para excluir");
+        //        return;
+        //    }
+
+        //}
+
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Excluir Classificação " + lpkCountry.SelectedItem + "?") == MessageBoxResult.OK)
-                {
-
-                    string nome = lpkCountry.SelectedItem.ToString();
-                   ClassificRepositorio.Delete(nome);
-                    Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione uma Classificação para excluir");
-                return;
-            }
-
+            Navigate("/ListaClassific.xaml");
         }
 
         private void btnAdd_Estabelec_Click(object sender, RoutedEventArgs e)
@@ -213,25 +225,51 @@ namespace CarteiraInternacional
             Navigate("/CadastroEstabelec.xaml");
         }
 
+        //private void btnExcluir_Estabelec_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (MessageBox.Show("Excluir Estabelecimento " + lpkEstabelecimento.SelectedItem + "?") == MessageBoxResult.OK)
+        //        {
+
+        //            string nome = lpkEstabelecimento.SelectedItem.ToString();
+        //            EstabelecRepositorio.Delete(nome);
+        //            Refresh();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Selecione uma Estabelecimento para excluir");
+        //        return;
+        //    }
+
+        //}
+
         private void btnExcluir_Estabelec_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("Excluir Estabelecimento " + lpkEstabelecimento.SelectedItem + "?") == MessageBoxResult.OK)
-                {
-
-                    string nome = lpkCountry.SelectedItem.ToString();
-                    EstabelecRepositorio.Delete(nome);
-                    Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione uma Estabelecimento para excluir");
-                return;
-            }
-
+        {                 
+            Navigate("/ListaEstabelecimento.xaml");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
 
@@ -240,25 +278,29 @@ namespace CarteiraInternacional
             Navigate("/CadastroProd.xaml");
         }
 
+        //private void btnExcluir_Prod_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (MessageBox.Show("Excluir Produto " + lpkProduto.SelectedItem + "?") == MessageBoxResult.OK)
+        //        {
+
+        //            string nome = lpkProduto.SelectedItem.ToString();
+        //            ProdutoRepositorio.Delete(nome);
+        //            Refresh();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Selecione um Produto para excluir");
+        //        return;
+        //    }
+        //}
+
         private void btnExcluir_Prod_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Excluir Produto " + lpkProduto.SelectedItem + "?") == MessageBoxResult.OK)
-                {
-
-                    string nome = lpkProduto.SelectedItem.ToString();
-                    ProdutoRepositorio.Delete(nome);
-                    Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Selecione um Produto para excluir");
-                return;
-            }
+            Navigate("/ListaProduto.xaml");
         }
-
 
         private void Navigate(string p)
         {
@@ -278,6 +320,8 @@ namespace CarteiraInternacional
 
 
         }
+
+        
         
 
     }

@@ -23,6 +23,11 @@ namespace CarteiraInternacional.Banco
             get { return this.GetTable<Classificacao>(); }
         }
 
+        public Table<Origem> Origem
+        {
+            get { return this.GetTable<Origem>(); }
+        }
+
         public Table<Estabelecimento> Estabelecimento
         {
             get { return this.GetTable<Estabelecimento>(); }
@@ -41,6 +46,11 @@ namespace CarteiraInternacional.Banco
         public Table<Credito> Credito
         {
             get { return this.GetTable<Credito>(); }
+        }
+
+        public Table<Cota> Cotacoes
+        {
+            get { return this.GetTable<Cota>(); }
         }
 
     }

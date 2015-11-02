@@ -17,7 +17,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            
+
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -43,7 +43,7 @@
             <StackPanel Grid.Column="1" HorizontalAlignment="Center">
 
                 <TextBlock x:Name="TxtValor" Grid.Column="0"  FontSize="25"   Style="{StaticResource PhoneTextTitle1Style}" HorizontalAlignment="Center" Margin="0,500,0,0" />
-                
+
             </StackPanel>
 
 

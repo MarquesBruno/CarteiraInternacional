@@ -20,6 +20,44 @@ namespace CarteiraInternacional
             InitializeComponent();
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            CadastroClassif page = e.Content as CadastroClassif;
+
+            // if (est.referencia == 2)
+            if (cla != null)
+            {
+                TxtId.Text = cla.id.ToString();
+                TxtClassif.Text = cla.nome;                
+
+                TxtId.IsEnabled = false;
+
+            }
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (cla != null)
+            {
+                TxtTitulo.Text = "Editar Produto";
+                TxtId.Text = cla.id.ToString();
+                TxtClassif.Text = cla.nome;
+
+                TxtId.IsEnabled = false;
+
+            }
+
+        }
+
+
+
+
+
+
+
         private void btnClassif_Click(object sender, RoutedEventArgs e)
         {
             if (TxtClassif.Text == string.Empty)
@@ -28,24 +66,53 @@ namespace CarteiraInternacional
                 return;
             }
 
+            if (cla != null)
+            {
+                cla.id = int.Parse(TxtId.Text);
+                cla.nome = TxtClassif.Text;
+
+
+                ClassificRepositorio.Update(cla);
+                MessageBox.Show("Dados Alterados com sucesso.");
+            }
+
+            if (cla == null)
+            {
+                Classificacao classificacao = new Classificacao
+                {
+                    id = int.Parse(TxtId.Text),
+                    nome = TxtClassif.Text
+
+                };
+                // Uri caminho = new Uri("/ProvaRepositorio.cs?parametro=" + TxtId.Text, UriKind.RelativeOrAbsolute); 
+                ClassificRepositorio.Create(classificacao);
+                MessageBox.Show("Categoria Cadastrada com Sucesso.");
+            }
+
+
+
+
+
+
+
             
             
-            Classificacao classificacao = new Classificacao
-            {
-                nome = TxtClassif.Text
-            };
+            //Classificacao classificacao = new Classificacao
+            //{
+            //    nome = TxtClassif.Text
+            //};
 
-            ClassificRepositorio.Create(classificacao);
+            //ClassificRepositorio.Create(classificacao);
 
-            if (classificacao.referencia != 1)
-            {
-                //Navigate("Compra.xaml");                
-                MessageBox.Show("Cadastrada com Sucesso.");
-            }
-            else
-            {
-                MessageBox.Show("Esta informação já consta no banco de dados");
-            }
+            //if (classificacao.referencia != 1)
+            //{
+            //    //Navigate("Compra.xaml");                
+            //    MessageBox.Show("Cadastrada com Sucesso.");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Esta informação já consta no banco de dados");
+            //}
 
             //ClassificRepositorio.Create(classificacao);
             //MessageBox.Show("Cadastrada com Sucesso.");

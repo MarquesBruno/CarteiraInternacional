@@ -26,12 +26,15 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Classificação" TextAlignment="Center" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Classificação" Name="TxtTitulo"  TextAlignment="Center" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <StackPanel Grid.Row="1">
 
+            <TextBlock Text="Id" Visibility="Collapsed"/>
+            <TextBox Name="TxtId" Visibility="Collapsed" Text="0"/>
+            
             <TextBlock Text="Nome Categoria"/>
             <TextBox Name="TxtClassif" InputScope="Text" MaxLength="32"/>
 

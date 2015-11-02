@@ -29,7 +29,7 @@ namespace CarteiraInternacional.Entidade
         public double preco { get; set; }
 
         [Column(CanBeNull = true)]
-        public int qtd { get; set; }
+        public double qtd { get; set; }
 
         [Column(CanBeNull = true)]
         public string Data { get; set; }

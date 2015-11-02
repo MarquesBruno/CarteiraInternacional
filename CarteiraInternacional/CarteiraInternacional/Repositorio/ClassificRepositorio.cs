@@ -23,7 +23,7 @@ namespace CarteiraInternacional.Repositorio
         public static List<string> GetOne()
         {
             DataBase db = GetDataBase();
-            var query = from clas in db.Classificacao orderby clas.id descending select clas.nome;
+            var query = from clas in db.Classificacao orderby clas.nome ascending select clas.nome;
 
             List<string> lista = query.ToList<string>();
          //  List<Classificacao> lista = new List<Classificacao>(lista);
@@ -35,7 +35,7 @@ namespace CarteiraInternacional.Repositorio
         public static List<Classificacao> Get(int pClassific)
         {
             DataBase db = GetDataBase();
-            var query = from clas in db.Classificacao orderby clas.id descending select clas;
+            var query = from clas in db.Classificacao orderby clas.nome ascending select clas;
 
             List<Classificacao> lista = new List<Classificacao>(query.AsEnumerable());
             return lista;
@@ -89,5 +89,36 @@ namespace CarteiraInternacional.Repositorio
             db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
             db.SubmitChanges();
         }
+
+        public static void DeleteObject(Classificacao pClassific)
+        {
+            DataBase db = GetDataBase();
+            var query = from c in db.Classificacao
+                        where c.id == pClassific.id
+                        select c;
+
+            db.Classificacao.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
+        public static void Update(Classificacao pClassific)
+        {
+            DataBase db = GetDataBase();
+
+            Classificacao cla = (from c in db.Classificacao
+                           where c.id == pClassific.id
+                           select c).First();
+
+            cla.nome = pClassific.nome;
+
+            db.SubmitChanges();
+        }
+
+
+
+
+
+
+
     }
 }

@@ -10,7 +10,7 @@ using CarteiraInternacional.Entidade;
 
 namespace CarteiraInternacional.Repositorio
 {
-    public class CompraRepositorio
+    public class OrigemRepositorio
     {
         private static DataBase GetDataBase()
         {
@@ -22,16 +22,16 @@ namespace CarteiraInternacional.Repositorio
         }
 
         //Listagem de valores das compras o qual sera somado e subtraido do valor de credito
-        public static List<double> GetOne()
+        public static List<string> GetOne()
         {
             DataBase db = GetDataBase();
 
             //var query = from comp in db.Compra orderby comp.id descending select comp.produto;
-            var query = from comp in db.Compra orderby comp.id descending select comp.preco;
+            var query = from orig in db.Origem orderby orig.nome ascending select orig.nome;
 
 
             //List<string> lista = query.ToList<string>();
-            List<double> lista = query.ToList<double>();
+            List<string> lista = query.ToList<string>();
 
             return lista;
         }
@@ -39,49 +39,50 @@ namespace CarteiraInternacional.Repositorio
 
 
         //Listagem da tela principal de lista de compras
-        public static List<CompraEntidade> Get(int pCompra)
+        public static List<string> Get(string pOrigem)
         {
             DataBase db = GetDataBase();
-            var query = from comp in db.Compra orderby comp.estabelecimento ascending select comp;
+            //var query = from orig in db.Origem orderby orig.nome ascending select orig.sigla;
+              var query = from orig in db.Origem where orig.nome == pOrigem  select orig.sigla;
 
-            List<CompraEntidade> lista = new List<CompraEntidade>(query.AsEnumerable());
+            List<string> lista = new List<string>(query.AsEnumerable());
             return lista;
         }
 
-        public static void Create(CompraEntidade pCompra)
+        public static void Create(Origem pOrigem)
         {
             int ponto = 0;
 
             DataBase db = GetDataBase();
-            var query = from comp in db.Compra orderby comp.id descending select comp;
+            var query = from orig in db.Origem orderby orig.id descending select orig;
 
-            List<CompraEntidade> lista = new List<CompraEntidade>(query.AsEnumerable());
+            List<Origem> lista = new List<Origem>(query.AsEnumerable());
 
-            db.Compra.InsertOnSubmit(pCompra);
+            db.Origem.InsertOnSubmit(pOrigem);
             db.SubmitChanges();
 
         }
 
-        public static void Delete(int pCompra)
+        public static void Delete(int pOrigem)
         {
             DataBase db = GetDataBase();
-            var query = from c in db.Compra
-                        where c.id == pCompra
+            var query = from c in db.Origem
+                        where c.id == pOrigem
                         select c;
 
-            db.Compra.DeleteOnSubmit(query.ToList()[0]);
+            db.Origem.DeleteOnSubmit(query.ToList()[0]);
             db.SubmitChanges();
         }
 
 
-        public static void DeleteObject(CompraEntidade pCompra)
+        public static void DeleteObject(Origem pOrigem)
         {
             DataBase db = GetDataBase();
-            var query = from c in db.Compra
-                        where c.id == pCompra.id
+            var query = from c in db.Origem
+                        where c.id == pOrigem.id
                         select c;
 
-            db.Compra.DeleteOnSubmit(query.ToList()[0]);
+            db.Origem.DeleteOnSubmit(query.ToList()[0]);
             db.SubmitChanges();
         }
 

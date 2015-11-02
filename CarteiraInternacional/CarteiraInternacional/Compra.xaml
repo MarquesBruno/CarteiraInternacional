@@ -73,12 +73,9 @@
 
 
             <TextBlock Text="Estabelecimento" Grid.Row="0" Grid.ColumnSpan="2"/>
-            <Button Content="?" Name="btninfo" HorizontalAlignment="Left" Width="76" Height="76"
-                     Click="btn_Inf_Click"  BorderBrush="Transparent" Grid.Row="0" Margin="157,-23,0,-25" Grid.ColumnSpan="2"/>
-
             
 
-            <toolkit:ListPicker x:Name="lpkEstabelecimento" 
+            <toolkit:ListPicker x:Name="lpkEstabelecimento" SelectionChanged="lpkEstabelec_SelectionChanged" 
                                 Grid.Column="0" Grid.Row="1" Width="315" HorizontalAlignment="Left"
                                 FullModeItemTemplate="{Binding lpkFullItemTemplate}"
                                 ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12" Grid.ColumnSpan="2" />
@@ -87,7 +84,7 @@
             <Button Content="+" Name="btnEstabelec" Grid.Row="1" HorizontalAlignment="Left"
                      Click="btnAdd_Estabelec_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="-" Name="btnExcluirEstabelec" Grid.Row="1" Grid.Column="1" Width="76" Height="76"
+            <Button Content="?" Name="btnExcluirEstabelec" Grid.Row="1" Grid.Column="1" Width="76" Height="76"
                      Click="btnExcluir_Estabelec_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
 
 
@@ -106,7 +103,7 @@
             <Button Content="+" Name="btnProd" Grid.Row="3" HorizontalAlignment="Left"
                      Click="btnAdd_Prod_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="-" Name="btnExcluirProd" Grid.Row="3" Grid.Column="1" Width="76" Height="76"
+            <Button Content="?" Name="btnExcluirProd" Grid.Row="3" Grid.Column="1" Width="76" Height="76"
                      Click="btnExcluir_Prod_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
 
 
@@ -114,8 +111,8 @@
 
 
             <TextBlock Text="Classificação" Grid.Row="4"/>
-            
-            <toolkit:ListPicker x:Name="lpkCountry" SelectionChanged="lpkCountry_SelectionChanged"
+
+            <toolkit:ListPicker x:Name="lpkClassific" SelectionChanged="lpkClassific_SelectionChanged"
                                 Grid.Row="5" Grid.Column="0" Width="315" HorizontalAlignment="Left"
                                 FullModeItemTemplate="{Binding lpkFullItemTemplate}" 
                                 ItemTemplate="{Binding lpkItemTemplate}" Margin="12,12,0,12" Grid.ColumnSpan="2" />
@@ -126,7 +123,7 @@
             <Button Content="+" Name="btnCadastro" Grid.Row="5" HorizontalAlignment="Left"
                      Click="btnClassificar_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="-" Name="btnExcluir" Grid.Row="5" Grid.Column="1" Width="76" Height="76"
+            <Button Content="?" Name="btnExcluir" Grid.Row="5" Grid.Column="1" Width="76" Height="76"
                      Click="btnExcluir_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
 
 

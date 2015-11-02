@@ -5,6 +5,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using CarteiraInternacional.Resources;
 using CarteiraInternacional.Entidade;
 using CarteiraInternacional.Repositorio;
 using Microsoft.Phone.Controls;
@@ -12,9 +13,9 @@ using Microsoft.Phone.Shell;
 
 namespace CarteiraInternacional
 {
-    public partial class ListaCompras : PhoneApplicationPage
+    public partial class ListaProduto : PhoneApplicationPage
     {
-        CompraEntidade pagina;
+        Produto prod;
 
         //teste
         //Classificacao pag;
@@ -22,19 +23,18 @@ namespace CarteiraInternacional
 
         private int id = 0;
 
-        public ListaCompras()
+        public ListaProduto()
         {
             InitializeComponent();
         }
 
         #region Metodos
 
-        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
-        {
-            //Navigate("/MainPage.xaml");
-            NavigationService.GoBack();
+        //protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        //{
+        //    Navigate("/MainPage.xaml");
 
-        }
+        //}
 
 
         private void Navigate(string pPage)
@@ -44,12 +44,12 @@ namespace CarteiraInternacional
         }
 
 
-        private void RefreshListaCompras()
+        private void RefreshListaProd()
         {
             //ORIGINAL
-            List<CompraEntidade> lista = Repositorio.CompraRepositorio.Get(id);
-            lstCompras.ItemsSource = lista;
-            
+            List<Produto> lista = Repositorio.ProdutoRepositorio.Get(id);
+            lstProduto.ItemsSource = lista;
+
             #region Rascunho lista
 
             //teste
@@ -57,7 +57,7 @@ namespace CarteiraInternacional
             //lstCompras.ItemsSource = listag;
 
 
-            #endregion          
+            #endregion
 
 
         }
@@ -65,11 +65,19 @@ namespace CarteiraInternacional
         //ORIGINAL
         private void onSelecionChange(object sender, SelectionChangedEventArgs e)
         {
-            pagina = (sender as ListBox).SelectedItem as CompraEntidade;
+            prod = (sender as ListBox).SelectedItem as Produto;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            CadastroProd page = e.Content as CadastroProd;
+            if (page != null)
+                page.pro = prod;
+
         }
 
         #region Rascunho OnselectChange
-        
+
         //private void onSelecionChange(object sender, SelectionChangedEventArgs e)
         //{
         //    pag = (sender as ListBox).SelectedItem as Classificacao;
@@ -77,7 +85,7 @@ namespace CarteiraInternacional
 
 
         #endregion
-        
+
 
 
         #endregion
@@ -87,15 +95,15 @@ namespace CarteiraInternacional
         private void appBarDelete(object sender, EventArgs e)
         {
 
-            if (pagina != null)
+            if (prod != null)
             {
-                if (MessageBox.Show("Excluir Produto ?") == MessageBoxResult.OK)
+                if (MessageBox.Show("Excluir Produto?") == MessageBoxResult.OK)
                 {
                     //ORIGINAL
-                    CompraRepositorio.DeleteObject(pagina);
+                    ProdutoRepositorio.DeleteObject(prod);
 
                     //ClassificRepositorio.DeleteObject(pag);
-                    RefreshListaCompras();
+                    RefreshListaProd();
 
                 }
 
@@ -118,15 +126,27 @@ namespace CarteiraInternacional
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            RefreshListaCompras();
+            RefreshListaProd();
             //progress.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         #endregion
 
-        private void appBarAdd(object sender, EventArgs e)
+        private void appBarEdit(object sender, EventArgs e)
         {
-            Navigate("/Compra.xaml");
+
+            if (prod != null)
+            {
+                Navigate("/CadastroProd.xaml");
+            }
+            else
+            {
+                if (MessageBox.Show("Selecione para Editar")
+                    == MessageBoxResult.OK)
+                { }
+            }
+
+
         }
     }
 }
