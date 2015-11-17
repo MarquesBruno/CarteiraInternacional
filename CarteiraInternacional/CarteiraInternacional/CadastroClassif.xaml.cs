@@ -68,6 +68,7 @@ namespace CarteiraInternacional
 
             if (cla != null)
             {
+               
                 cla.id = int.Parse(TxtId.Text);
                 cla.nome = TxtClassif.Text;
 

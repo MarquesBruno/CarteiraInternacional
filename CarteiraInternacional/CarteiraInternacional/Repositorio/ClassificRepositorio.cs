@@ -41,6 +41,72 @@ namespace CarteiraInternacional.Repositorio
             return lista;
         }
 
+        public static List<Classificacao> Busca()
+        {
+            DataBase db = GetDataBase();
+            var query = from clas in db.Classificacao orderby clas.nome ascending select clas;
+
+            List<Classificacao> lista = new List<Classificacao>(query.AsEnumerable());
+            return lista;
+        }
+
+
+
+        public static List<Classificacao> BuscaInteiro(int referencia)
+        {
+            DataBase db = GetDataBase();
+            var query = from clas in db.Classificacao where clas.referencia == referencia select clas;
+            //var query = from clas in db.Classificacao orderby clas.nome ascending select clas;
+
+            List<Classificacao> lista = new List<Classificacao>(query.AsEnumerable());
+            return lista;
+        }
+
+
+
+
+
+
+        //public static List<Classificacao> ListaNome(string pClassific)
+        //{
+        //    DataBase db = GetDataBase();
+        //    // var query = from cot in db.Cotacoes orderby cot.data_consulta descending select cot;
+        //    //  var query = from cot in db.Cotacoes orderby cot.id descending select cot;
+        //    //   var query = from orig in db.Origem where orig.nome == pOrigem select orig.sigla;
+        //    var query = from c in db.Classificacao where c.periodo == pClassific select c;
+
+        //    List<Classificacao> lista = new List<Classificacao>(query.AsEnumerable());
+        //    return lista;
+        //}
+
+
+
+
+
+
+
+
+
+        //Método recebe uma classificação no momento da inserção da classificação e retorna um preço do produto;
+        //O preço servira para que cada classificação possa receber o total de compras que cada classificação possui;
+        public static List<double> GetPreco(string pClassific)
+        {
+            DataBase db = GetDataBase();
+            //var query = from orig in db.Origem orderby orig.nome ascending select orig.sigla;
+            var query = from clas in db.Compra where clas.classificacao == pClassific select clas.preco;
+
+            List<double> lista = new List<double>(query.AsEnumerable());
+            return lista;
+        }
+
+
+
+
+
+
+
+
+
         public static void Create(Classificacao pClassific)
         {
             int ponto = 0;
@@ -110,6 +176,8 @@ namespace CarteiraInternacional.Repositorio
                            select c).First();
 
             cla.nome = pClassific.nome;
+            cla.total = pClassific.total;
+            cla.referencia = pClassific.referencia;
 
             db.SubmitChanges();
         }

@@ -18,5 +18,11 @@ namespace CarteiraInternacional.Entidade
 
         [Column(CanBeNull = true)]
         public string nome { get; set; }
+
+        [Column(CanBeNull = true)]
+        public double total { get; set; }
+
+        //[Column(CanBeNull = true)]
+        //public string periodo { get; set; }
     }
 }

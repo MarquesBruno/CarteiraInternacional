@@ -85,12 +85,43 @@ namespace CarteiraInternacional
         #region Eventos
 
         private void appBarDelete(object sender, EventArgs e)
-        {
-
+        {            
             if (pagina != null)
             {
                 if (MessageBox.Show("Excluir Produto ?") == MessageBoxResult.OK)
                 {
+
+
+
+                    List<double> listaPreco = Repositorio.ClassificRepositorio.GetPreco(pagina.classificacao);
+                    List<Classificacao> listaTudo = Repositorio.ClassificRepositorio.Busca();
+
+
+                    if (listaPreco.Count() != 0)
+                    {
+
+                        foreach (var item in listaTudo)
+                        {
+                            if (item.nome == Convert.ToString(pagina.classificacao))
+                            {
+                                Classificacao classific = new Classificacao
+                                {
+                                    id = item.id,
+                                    nome = item.nome,
+                                    referencia = item.referencia,
+                                    total = listaPreco.Sum() - pagina.preco
+                                };
+                                ClassificRepositorio.Update(classific);
+
+                            }
+
+                        }
+
+
+                    }
+
+
+
                     //ORIGINAL
                     CompraRepositorio.DeleteObject(pagina);
 

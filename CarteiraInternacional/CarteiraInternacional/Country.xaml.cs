@@ -175,8 +175,6 @@ namespace CarteiraInternacional
 
 
 
-
-
         //private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         //{
         //    if (e.Item == esportivos)

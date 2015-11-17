@@ -1,0 +1,71 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CarteiraInternacional.MainPagePivot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" >        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <!--Pivot Control-->
+        <phone:Pivot Title="">
+            
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Cotação Facil">
+                
+
+                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+                    <Button Content="Calculadora" HorizontalAlignment="center" Margin="0,78,0,0" VerticalAlignment="Top" Width="180" Click="Calculadora_Click"/>
+                    <Button Content="Creditar" HorizontalAlignment="center" Margin="143,156,142,0" VerticalAlignment="Top" Width="180" Click="Creditar_Click"/>
+                    <Button Content="Compras" HorizontalAlignment="center" Margin="143,234,142,0" VerticalAlignment="Top" Width="180" Click="Compras_Click"/>
+                    <Button Content="Relatório" HorizontalAlignment="center" Margin="143,312,142,0" VerticalAlignment="Top" Width="180" Click="Relatorio_Click"/>
+                    <Button Content="Informações" HorizontalAlignment="center" Margin="143,390,142,0" VerticalAlignment="Top" Width="180" Click="Informacoes_Click"/>
+
+                </Grid>
+
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Resumo">
+
+                <Grid x:Name="ContentPanel2">
+
+
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="TxtValor" Grid.Column="0"  FontSize="25"   Style="{StaticResource PhoneTextTitle1Style}" HorizontalAlignment="Center" Margin="0,500,0,0" />
+
+                    </StackPanel>
+
+
+
+                </Grid>
+
+
+
+
+
+
+
+
+
+                
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

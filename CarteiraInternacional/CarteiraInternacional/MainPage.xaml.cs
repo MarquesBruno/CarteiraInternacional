@@ -116,7 +116,8 @@ namespace CarteiraInternacional
 
         private void Informacoes_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Em desenvolvimento");
+            //MessageBox.Show("Em desenvolvimento");
+            Navigate("/GraficoProblema.xaml");
         }
 
         private void Navigate(string p)

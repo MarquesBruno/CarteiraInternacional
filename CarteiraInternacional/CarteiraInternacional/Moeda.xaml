@@ -31,7 +31,8 @@
 
         <!--ContentPanel - place additional content here-->
         <StackPanel Grid.Row="1" Margin="0,0,0,84">
-            <TextBlock Text="Digite em US$  " Name="titulo" TextAlignment="Center"/>
+            <!--<TextBlock Text="Digite em US$  " Name="titulo" TextAlignment="Center"/>-->
+            <TextBlock Text="" Name="titulo" TextAlignment="Center"/>
             <TextBox Name="TxtDolar" Text="" InputScope="Number" />
 
 

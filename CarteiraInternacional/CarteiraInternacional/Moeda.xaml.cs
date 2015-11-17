@@ -361,7 +361,7 @@ namespace CarteiraInternacional
         private void RefreshOpcao()
         {
             List<string> escolha = Repositorio.OrigemRepositorio.Get(nome);
-
+            titulo.Text = nome;
             siglaAux = escolha[0];
 
         }
@@ -371,7 +371,7 @@ namespace CarteiraInternacional
             string nomeParametro = "";
 
             if (NavigationContext.QueryString.TryGetValue("nome", out nomeParametro))
-            {
+            {               
                 nome = nomeParametro;
                 //OrigemRepositorio.Get(nome);
             }

@@ -34,5 +34,8 @@ namespace CarteiraInternacional.Entidade
         [Column(CanBeNull = true)]
         public string Data { get; set; }
 
+        [Column(CanBeNull = true)]
+        public string periodo { get; set; }
+
     }
 }

@@ -138,6 +138,38 @@ namespace CarteiraInternacional
             Double aux = (Convert.ToDouble(txtPreco.Text));
             string resultado = string.Format("{0:00.##}", aux);
 
+             List<double> listaPreco = Repositorio.ClassificRepositorio.GetPreco((Convert.ToString(lpkClassific.SelectedItem)));
+             List<Classificacao> listaTudo = Repositorio.ClassificRepositorio.Busca();
+            
+
+            
+
+                foreach (var item in listaTudo)
+                {
+                    if(item.nome == Convert.ToString(lpkClassific.SelectedItem))
+                    {
+                        Classificacao classific = new Classificacao
+                        {
+                            id = item.id,
+                           nome = item.nome,
+                           referencia = item.referencia,
+                            total = listaPreco.Sum() + aux
+                            
+                        };
+
+                        ClassificRepositorio.Update(classific);
+
+                    }
+
+                }
+
+
+            
+            
+
+
+
+
             CompraEntidade compra = new CompraEntidade
             {
                 estabelecimento = (Convert.ToString(lpkEstabelecimento.SelectedItem)),
@@ -145,7 +177,8 @@ namespace CarteiraInternacional
                 classificacao = (Convert.ToString(lpkClassific.SelectedItem)),
                 preco = (Convert.ToDouble(resultado)),
                 Data = DateTime.Now.ToString("dd/MM/yyyy"),
-                qtd = (Convert.ToDouble(txtQtd.Text))
+                qtd = (Convert.ToDouble(txtQtd.Text)),
+                periodo = DateTime.Now.ToString("MM")
 
 
             };

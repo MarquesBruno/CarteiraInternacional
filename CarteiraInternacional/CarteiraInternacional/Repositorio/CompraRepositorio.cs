@@ -48,6 +48,62 @@ namespace CarteiraInternacional.Repositorio
             return lista;
         }
 
+
+        public static List<CompraEntidade> busca()
+        {
+            DataBase db = GetDataBase();
+            //var query = from comp in db.Compra where comp.classificacao == comp.classificacao select comp;
+            var query = from comp in db.Compra orderby comp.classificacao ascending select comp;
+
+            List<CompraEntidade> lista = new List<CompraEntidade>(query.AsEnumerable());
+            return lista;
+        }
+
+        public static List<double> GetPreco(string pCompra)
+        {
+            DataBase db = GetDataBase();
+            //var query = from orig in db.Origem orderby orig.nome ascending select orig.sigla;
+            var query = from orig in db.Compra where orig.periodo == pCompra  select orig.preco;
+
+            List<double> lista = new List<double>(query.AsEnumerable());
+
+            //var sum = lista.Select(orig => orig).Sum();
+            return lista;
+        }
+
+
+        public static List<CompraEntidade> GetPeriodo(string pCompra)
+        {
+            DataBase db = GetDataBase();
+            //var query = from orig in db.Origem orderby orig.nome ascending select orig.sigla;
+            var query = from orig in db.Compra where orig.periodo == pCompra select orig;
+
+            List<CompraEntidade> lista = new List<CompraEntidade>(query.AsEnumerable());
+            return lista;
+        }
+
+
+
+        public static List<CompraEntidade> Teste(string pCompra)
+        {
+            DataBase db = GetDataBase();
+            //var query = from orig in db.Origem orderby orig.nome ascending select orig.sigla;
+            var query = from orig in db.Compra where orig.periodo == pCompra select orig;
+
+            List<CompraEntidade> lista = new List<CompraEntidade>(query.AsEnumerable());
+            return lista;
+        }
+
+
+
+
+
+
+
+
+
+
+
         public static void Create(CompraEntidade pCompra)
         {
             int ponto = 0;

@@ -109,31 +109,28 @@
     <Compile Include="Compra.xaml.cs">
       <DependentUpon>Compra.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConverterJson.cs" />
     <Compile Include="Country.xaml.cs">
       <DependentUpon>Country.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entidade\Classificacao.cs" />
-    <Compile Include="DollarPage.xaml.cs">
-      <DependentUpon>DollarPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Entidade\CompraEntidade.cs" />
     <Compile Include="Entidade\Cota.cs" />
     <Compile Include="Entidade\Estabelecimento.cs" />
     <Compile Include="Entidade\Credito.cs" />
     <Compile Include="Entidade\Origem.cs" />
+    <Compile Include="Entidade\PeriodoEntidade.cs" />
     <Compile Include="Entidade\Produto.cs" />
-    <Compile Include="Favoritos.xaml.cs">
-      <DependentUpon>Favoritos.xaml</DependentUpon>
+    <Compile Include="GraficoProblema.xaml.cs">
+      <DependentUpon>GraficoProblema.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Grafico.xaml.cs">
-      <DependentUpon>Grafico.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GraficoLinha.xaml.cs">
-      <DependentUpon>GraficoLinha.xaml</DependentUpon>
+    <Compile Include="GraficoSeletivo.xaml.cs">
+      <DependentUpon>GraficoSeletivo.xaml</DependentUpon>
     </Compile>
     <Compile Include="GraficoPivot.xaml.cs">
       <DependentUpon>GraficoPivot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Informacoes.xaml.cs">
+      <DependentUpon>Informacoes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListaClassific.xaml.cs">
       <DependentUpon>ListaClassific.xaml</DependentUpon>
@@ -154,27 +151,25 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainPagePivot.xaml.cs">
+      <DependentUpon>MainPagePivot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Moeda.xaml.cs">
       <DependentUpon>Moeda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relatorio.xaml.cs">
-      <DependentUpon>Relatorio.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Repositorio\ClassificRepositorio.cs" />
     <Compile Include="Repositorio\CotaRepositorio.cs" />
     <Compile Include="Repositorio\CreditoRepositorio.cs" />
     <Compile Include="Repositorio\CompraRepositorio.cs" />
     <Compile Include="Repositorio\EstabelecRepositorio.cs" />
+    <Compile Include="Repositorio\PeriodoRepositorio.cs" />
     <Compile Include="Repositorio\OrigemRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoRepositorio.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="testeJson.xaml.cs">
-      <DependentUpon>testeJson.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
@@ -207,23 +202,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DollarPage.xaml">
+    <Page Include="GraficoProblema.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Favoritos.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="GraficoSeletivo.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Grafico.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GraficoLinha.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GraficoPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Informacoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,15 +242,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainPagePivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Moeda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Relatorio.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="testeJson.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,7 +260,10 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="equip.png" />
+    <Content Include="Icons\equip.png" />
     <Content Include="Resources\Json\paises.json" />
+    <Content Include="Resources\Json\periodos.json" />
     <None Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -308,8 +298,6 @@
     <Content Include="Icons\favs.png" />
     <Content Include="Icons\help.png" />
     <Content Include="Icons\like.png" />
-    <Content Include="Icons\refresh.png" />
-    <Content Include="Icons\sifrao.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Resources\Lib\Newtonsoft.Json.dll" />
     <Content Include="Scripts\getorgchart-1.1\getorgchart.css" />
