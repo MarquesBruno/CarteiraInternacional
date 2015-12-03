@@ -123,6 +123,9 @@
     <Compile Include="GraficoProblema.xaml.cs">
       <DependentUpon>GraficoProblema.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GraficoSeletivoCopia.xaml.cs">
+      <DependentUpon>GraficoSeletivoCopia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GraficoSeletivo.xaml.cs">
       <DependentUpon>GraficoSeletivo.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GraficoSeletivoCopia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GraficoSeletivo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -260,8 +267,10 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="equip.png" />
     <Content Include="Icons\equip.png" />
+    <Content Include="Icons\eye.png" />
+    <Content Include="Icons\eyeCopia.png" />
+    <Content Include="Icons\olho.png" />
     <Content Include="Resources\Json\paises.json" />
     <Content Include="Resources\Json\periodos.json" />
     <None Include="Scripts\jquery-2.1.4.min.map" />

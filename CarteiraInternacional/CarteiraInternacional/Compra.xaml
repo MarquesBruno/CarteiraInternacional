@@ -84,8 +84,12 @@
             <Button Content="+" Name="btnEstabelec" Grid.Row="1" HorizontalAlignment="Left"
                      Click="btnAdd_Estabelec_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="?" Name="btnExcluirEstabelec" Grid.Row="1" Grid.Column="1" Width="76" Height="76"
-                     Click="btnExcluir_Estabelec_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
+            <Button  Name="btnExcluirEstabelec" Grid.Row="1" Grid.Column="1" Width="76" Height="76"
+                     Click="btnExcluir_Estabelec_Click" Margin="75,8,11,0" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Icons/eyeCopia.png"/>
+                </Button.Background>
+            </Button>
 
 
 
@@ -103,14 +107,18 @@
             <Button Content="+" Name="btnProd" Grid.Row="3" HorizontalAlignment="Left"
                      Click="btnAdd_Prod_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="?" Name="btnExcluirProd" Grid.Row="3" Grid.Column="1" Width="76" Height="76"
-                     Click="btnExcluir_Prod_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
+            <Button  Name="btnExcluirProd" Grid.Row="3" Grid.Column="1" Width="76" Height="76"
+                     Click="btnExcluir_Prod_Click" Margin="75,8,11,0" Grid.ColumnSpan="2">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/Icons/eyeCopia.png"/>
+                    </Button.Background>
+                </Button>
 
 
 
 
 
-            <TextBlock Text="Classificação" Grid.Row="4"/>
+                <TextBlock Text="Classificação" Grid.Row="4"/>
 
             <toolkit:ListPicker x:Name="lpkClassific" SelectionChanged="lpkClassific_SelectionChanged"
                                 Grid.Row="5" Grid.Column="0" Width="315" HorizontalAlignment="Left"
@@ -123,8 +131,13 @@
             <Button Content="+" Name="btnCadastro" Grid.Row="5" HorizontalAlignment="Left"
                      Click="btnClassificar_Click" Width="76" Height="76" Margin="10,8,0,0" Grid.Column="1"/>
 
-            <Button Content="?" Name="btnExcluir" Grid.Row="5" Grid.Column="1" Width="76" Height="76"
-                     Click="btnExcluir_Click" Margin="75,8,11,0" Grid.ColumnSpan="2"/>
+            <Button  Name="btnExcluir" Grid.Row="5" Grid.Column="1" Width="76" Height="76"
+                     Click="btnExcluir_Click" Margin="75,8,11,0" Grid.ColumnSpan="2">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Icons/eyeCopia.png"/>
+                </Button.Background>
+            </Button>
+
 
 
 

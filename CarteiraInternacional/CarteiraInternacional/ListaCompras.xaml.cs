@@ -143,8 +143,7 @@ namespace CarteiraInternacional
 
         private void appBarSobre_Click(object sender, EventArgs e)
         {
-            //Navigate("/Sobre.xaml");
-            Navigate("/MainPage.xaml");
+            Navigate("/Informacoes.xaml");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
